@@ -26,16 +26,16 @@ public class SwitchStatementDemo {
 
         case 0:
             System.out.println("0 from switch");
-            break;
+            
         case 1:
             System.out.println("1 from switch");
-            break;
+            
         case 2:
             System.out.println("2 from switch");
-            break;
+            
         default:
             System.out.println("Something went wrong from switch :(");
-            break;
+            
 
         }
 

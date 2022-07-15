@@ -7,7 +7,7 @@ public class EncapsulateTheData {
      * itemsReceived to 0.
      */
 
-    int itemsReceived;
+    private int itemsReceived;
     public void setItemsReceived(int newNum) {
 		if (newNum >= 0) {
 			itemsReceived = newNum;
@@ -15,14 +15,14 @@ public class EncapsulateTheData {
     }
     public int getItemsReceived() {
     	return itemsReceived;
-    }/*
     }
+    /*
      * degreesTurned must be locked between 0.0 and 360.0 inclusive. All
      * parameters outside this range should set degreesTurned to the nearest
      * bound.
      */
 
-    double degreesTurned;
+    private double degreesTurned;
     public void setDegreesTurned(double newNum) {
     	if((newNum >= 0.0)&&(newNum<= 360.0)) {
     		degreesTurned = newNum;
@@ -42,11 +42,11 @@ public class EncapsulateTheData {
      * should set nomenclature to a String with a single space.
      */
 
-    String nomenclature;
+   private String nomenclature;
     
-    @SuppressWarnings("unused")
+    
 	public void setNomenclature(String newString) {
-    	if((!newString.equals(""))||(newString != null)) {
+    	if((!newString.equals(""))&&(newString != null)) {
     		nomenclature = newString;
     	}
     	else {
@@ -62,17 +62,16 @@ public class EncapsulateTheData {
      * to a new Object(); Hint: Use the instanceof operator.
      */
 
-    Object memberObj;
+    private Object memberObj;
     
     public void setMemberObj(Object newObj) {
-    	memberObj = newObj;
-    }
-    public void memberObjNotString(String badString) {
-    	memberObj = new Object();
-    }
-    public Object getMemberObj() {
+    	if (!(newObj instanceof String)) {
+    		memberObj = newObj;
+			}
+    	}
+    	public Object getMemberObj() {
     	return memberObj;
-    }
+    	}
     
 	
 
