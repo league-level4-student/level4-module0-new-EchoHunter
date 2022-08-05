@@ -105,16 +105,17 @@ public class SnakeGame implements ActionListener, KeyListener {
          */
         switch (e.getKeyCode()) {
 		case KeyEvent.VK_UP:
-			
+		
+			snake.setDirection(Direction.UP);
 			break;
 		case KeyEvent.VK_RIGHT:
-			
+			snake.setDirection(Direction.RIGHT);
 			break;
 		case KeyEvent.VK_LEFT:
-			
+			snake.setDirection(Direction.LEFT);
 			break;
 		case KeyEvent.VK_DOWN:
-			
+			snake.setDirection(Direction.DOWN);
 			break;
 
 		default:
@@ -132,7 +133,7 @@ public class SnakeGame implements ActionListener, KeyListener {
          */
     	
     	Location randLoc = new Location(rand.nextInt(WIDTH),rand.nextInt(HEIGHT));
-        while (!snake.isLocationOnSnake(randLoc)) {
+        while (snake.isLocationOnSnake(randLoc)) {
         	randLoc = new Location(rand.nextInt(WIDTH),rand.nextInt(HEIGHT));
         }
     	foodLocation = randLoc;
@@ -166,13 +167,13 @@ int response = JOptionPane.showConfirmDialog(null,"Would you like to try again?"
          * method and this class's setFoodLocation method then restart the
          * timer. Otherwise, exit the game.
          */
-if (response == 1) {
+if (response == 0) {
 	snake.resetLocation();
 	setFoodLocation();
 	timer.restart();
 }
 else {
-	System.exit(0);
+	System.exit(1);
 }
         
 
