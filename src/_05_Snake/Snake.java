@@ -3,6 +3,7 @@ package _05_Snake;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Snake {
 	public static final Color SNAKE_COLOR = Color.BLUE;
@@ -89,7 +90,9 @@ public class Snake {
 		 * 
 		 * Hint: Use the isOppositeDirection method to check if Direction d is opposite.
 		 */
+		if (!isOppositeDirection(direction)) {
 		currentDirection = direction;
+		}
 		if ((isOppositeDirection(direction)) && (canMove == true)) {
 			canMove = false;
 		}
@@ -163,11 +166,10 @@ public class Snake {
 		 * location as any other body segment.
 		 */
 		for (int i = 1; i < snake.size(); i++) {
-			if (head.getLocation() == snake.get(i).getLocation()) {
+			if (getHeadLocation().equals(snake.get(i).getLocation())) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -177,8 +179,10 @@ public class Snake {
 		 * Complete the method so it returns true if the passed in location is located
 		 * on the snake.
 		 */
-		if (loc == head.getLocation()) {
-			return true;
+		for (int i = 0; i < snake.size(); i++) {
+			if (loc == snake.get(i).getLocation()) {
+				return true;
+			}
 		}
 		return false;
 	}
